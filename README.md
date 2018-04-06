@@ -1,0 +1,2 @@
+# LoveCore
+Proof of concept
