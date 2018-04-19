@@ -1,4 +1,4 @@
-GAME_TO_LOAD = "sticks"
+GAME_TO_LOAD = "ECSTest"
 GAME_TO_LOAD_OVERRIDE = os.getenv("GAME_TO_LOAD_OVERRIDE")
 
 currentGame = {}

@@ -1,5 +1,5 @@
-local entities = require("minigames/TestGame/entities")
-local systems = require("minigames/TestGame/systems")
+local entities = require("minigames/ECSTest/entities")
+local systems = require("minigames/ECSTest/systems")
 
 local Game = {}
 

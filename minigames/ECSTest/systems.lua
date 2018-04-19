@@ -11,12 +11,36 @@ end
 
 function systems.renderDebugSystem(entity)
     local debugSpacing = 15
+
+    if systems.checkForFilters(entity, "position") then
+        local textpos = entity.position.y - debugSpacing
+        love.graphics.print("Position: " .. entity.position.x .. ", " .. entity.position.y, entity.position.x, textpos)
+        if systems.checkForFilters(entity, "velocity") then
+            textpos = textpos - debugSpacing
+            love.graphics.print("Velocity: " .. entity.velocity.x .. ", " .. entity.velocity.y, entity.position.x, textpos)
+        end
+
+        if systems.checkForFilters(entity, "force") then
+            textpos = textpos - debugSpacing            
+            love.graphics.print("Force: " .. entity.force.x .. ", " .. entity.force.y, entity.position.x, textpos)
+        end
+
+        if systems.checkForFilters(entity, "id") then
+            textpos = textpos - debugSpacing
+            love.graphics.print("ID: " .. entity.id, entity.position.x, textpos)
+        end
+
+        if systems.checkForFilters(entity, "mass") then
+            textpos = textpos - debugSpacing
+            love.graphics.print("Mass: " .. entity.mass, entity.position.x, textpos)
+        end
+    end
+
+
     if entity["position"] ~= nil then
         local textpos = entity.position.y - debugSpacing
         love.graphics.print("Position: " .. entity.position.x .. ", " .. entity.position.y, entity.position.x, textpos)
         if entity["velocity"] ~= nil then 
-            textpos = textpos - debugSpacing
-            love.graphics.print("Velocity: " .. entity.velocity.x .. ", " .. entity.velocity.y, entity.position.x, textpos)
         end
         if entity["force"] ~= nil then
             textpos = textpos - debugSpacing            
