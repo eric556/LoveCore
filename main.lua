@@ -1,15 +1,20 @@
-
 GAME_TO_LOAD = "sticks"
+GAME_TO_LOAD_OVERRIDE = os.getenv("GAME_TO_LOAD_OVERRIDE")
 
 currentGame = {}
 function loadGame(name)  -- Loads a minigame
     local path = "minigames/" .. name
+    print("loading game: " .. path);
     currentGame = require(path .. "/main")
     currentGame:load()
 end
 
 function love.load()
-    loadGame(GAME_TO_LOAD)
+    if GAME_TO_LOAD_OVERRIDE then
+        loadGame(GAME_TO_LOAD_OVERRIDE)
+    else
+        loadGame(GAME_TO_LOAD)
+    end
 end
 
 function love.update(dt)
